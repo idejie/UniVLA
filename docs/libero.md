@@ -17,7 +17,7 @@ Dataset download from [huggingface](https://huggingface.co/datasets/openvla/modi
 
 ## Dataset Preparation
 ```shell
-# 1. process the dataset
+# 1. process the dataset, we process all the LIBERO suites together
 python tools/process/libero_process.py
 
 # 2. extract the vq tokens, need to change the dataset & output path

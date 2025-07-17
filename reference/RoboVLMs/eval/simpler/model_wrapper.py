@@ -90,7 +90,6 @@ class EmuVLAInference(CustomModel):
         # load model and tokenizer
         self.init_config(device=device)
         self.image_processor.min_pixels = 80 * 80
-        self.dataset_stat = self.load_dataset_stat()
 
         if self.use_cot:
             self.kwargs = dict(
@@ -160,17 +159,6 @@ class EmuVLAInference(CustomModel):
         self.vision_gripper_queue = Queue(maxsize=self.window_size)
         self.action_queue = Queue(maxsize=self.window_size - 1)
 
-    @staticmethod
-    def load_dataset_stat():
-        stat = {}
-
-        with open(
-            "/share/project/yuqi.wang/OmniSim/reference/RoboVLMs/configs/data/libero_dataset_stats/dataset_libero_10.json", "r"
-        ) as f:
-            libero_10_info = json.load(f)
-        stat["libero_10"] = libero_10_info
-
-        return stat
     
     def add_image(self, image):
         if self.vision_queue.full():
@@ -492,7 +480,6 @@ class EmuVLAInference(CustomModel):
         action["terminate_episode"] = np.array([0.0])
 
         return raw_action, action
-
 
 class BaseModelInference(CustomModel):
     def __init__(
