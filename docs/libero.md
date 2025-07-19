@@ -20,7 +20,7 @@ Dataset download from [huggingface](https://huggingface.co/datasets/openvla/modi
 # 1. process the dataset, we process all the LIBERO suites together
 python tools/process/libero_process.py
 
-# 2. extract the vq tokens, need to change the dataset & output path
+# 2. extract the vq tokens, need to change the dataset & output path, without augmentation
 bash scripts/tokenizer/extract_vq_emu3.sh 
 
 # 3. pickle generation for training

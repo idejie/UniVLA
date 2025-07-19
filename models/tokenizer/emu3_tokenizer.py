@@ -231,7 +231,7 @@ data_config = {
         'interval': 1,
         'SIZE': (200, 200),
         'VIDEO_ROOT': '/share/project/yuqi.wang/datasets/processed_data/libero_all',
-        'VIDEO_CODES_SAVE': '/share/project/yuqi.wang/datasets/processed_data/libero_all_gripper_codes_200_augshift',
+        'VIDEO_CODES_SAVE': '/share/project/yuqi.wang/datasets/processed_data/libero_all_gripper_codes_200',
         'VIDEO_RECON_SAVE': '/share/project/yuqi.wang/datasets/processed_data/libero_recon_256'
     },
     'bridge_orig': {
@@ -436,8 +436,9 @@ if __name__ == "__main__":
         elif process_data == 'Calvin_raw':
             images, image_paths = load_images(osp.join(VIDEO_ROOT, video), SIZE, interval)
         elif process_data == 'libero':
-            # images, image_paths = load_images(osp.join(VIDEO_ROOT, video, 'images'), SIZE, interval, augmentation=random_shift)
-            images, image_paths = load_images(osp.join(VIDEO_ROOT, video,'gripper_images'), SIZE, interval, augmentation=random_shift)
+            # remember to process the images and gripper images
+            # images, image_paths = load_images(osp.join(VIDEO_ROOT, video, 'images'), SIZE, interval)
+            images, image_paths = load_images(osp.join(VIDEO_ROOT, video,'gripper_images'), SIZE, interval)
         elif process_data == 'Calvin_partial':
             images, image_paths = load_images(osp.join(VIDEO_ROOT, video,'rgb_static'), SIZE, interval)
             # images, image_paths = load_images(osp.join(VIDEO_ROOT, video,'rgb_gripper'), SIZE, interval)
