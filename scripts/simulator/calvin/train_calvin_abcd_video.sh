@@ -5,7 +5,7 @@ MASTER_PORT=${MASTER_PORT:-23456}
 NGPUS=8
 
 DATAPATH='/share/project/yuqi.wang/datasets/processed_data/meta/calvin_abcd_norm.pkl'
-ACTION_TOKENIZER_PATH="/share/project/yuqi.wang/UniVLA/pretrain/fast_calvin_norm_a10_s50"
+ACTION_TOKENIZER_PATH="pretrain/fast_calvin_norm_a10_s50"
 EXP_NAME="UNIVLA_CALVIN_ABCD_VIDEO_BS192_8k"
 
 export PYTHONPATH=$(pwd)
