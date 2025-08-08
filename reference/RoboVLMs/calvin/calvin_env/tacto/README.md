@@ -13,6 +13,7 @@
 
 This package provides a simulator for vision-based tactile sensors, such as [DIGIT](https://digit.ml).
 It provides models for the integration with PyBullet, as well as a renderer of touch readings.
+For more information refer to the corresponding paper [TACTO: A Fast, Flexible, and Open-source Simulator for High-resolution Vision-based Tactile Sensors](https://arxiv.org/abs/2012.08456).
 
 NOTE: the simulator is not meant to provide a physically accurate dynamics of the contacts (e.g., deformation, friction), but rather relies on existing physics engines.
 
@@ -70,8 +71,23 @@ For advanced examples of how to use the simulator with PyBullet look at the [exa
 * [examples/demo_pybullet_digit_shadow.py](examples/demo_pybullet_digit_shadow.py): enable shadow rendering.
 <img src="/website/static/img/demo_shadow.gif?raw=true" alt="Demo Shadow" />
 
+### Headless Rendering
+
 NOTE: the renderer requires a screen. For rendering headless, use the "EGL" mode with GPU and CUDA driver or "OSMESA" with CPU. 
 See [PyRender](https://pyrender.readthedocs.io/en/latest/install/index.html) for more details.
+
+Additionally, install the patched version of PyOpenGL via,
+
+```
+pip install git+https://github.com/mmatl/pyopengl.git@76d1261adee2d3fd99b418e75b0416bb7d2865e6
+```
+
+You may then specify which engine to use for headless rendering, for example,
+
+```
+import os
+os.environ["PYOPENGL_PLATFORM"] = "osmesa" # osmesa cpu rendering
+```
 
 ## Operating System
 We recommend to conduct experiments on **Ubuntu**.
@@ -86,12 +102,17 @@ This project is licensed under MIT license, as found in the [LICENSE](LICENSE) f
 If you use this project in your research, please cite:
 
 ```BibTeX
-@Article{Wang2020TACTO,
-  author  = {Wang, Shaoxiong and Lambeta, Mike and Chou, Lambeta and Calandra, Roberto},
-  title   = {TACTO: A Fast, Flexible and Open-source Simulator for High-Resolution Vision-based Tactile Sensors},
-  journal = {Arxiv},
-  year    = {2020},
-  url     = {https://arxiv.org/abs/2012.08456},
+@Article{Wang2022TACTO,
+  author   = {Wang, Shaoxiong and Lambeta, Mike and Chou, Po-Wei and Calandra, Roberto},
+  title    = {{TACTO}: A Fast, Flexible, and Open-source Simulator for High-resolution Vision-based Tactile Sensors},
+  journal  = {IEEE Robotics and Automation Letters (RA-L)},
+  year     = {2022},
+  volume   = {7},
+  number   = {2},
+  pages    = {3930--3937},
+  issn     = {2377-3766},
+  doi      = {10.1109/LRA.2022.3146945},
+  url      = {https://arxiv.org/abs/2012.08456},
 }
 ```
 

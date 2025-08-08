@@ -15,10 +15,11 @@ conda install -c conda-forge gcc=12.1.0 gxx_linux-64 -y
 cd ${project_root}/reference/RoboVLMs/calvin
 
 sh install.sh
+pip install -r ${project_root}/reference/RoboVLMs/calvin/calvin_env/requirements.txt
 
 # CALVIN spesicifcally requires the following version of numpy
-pip install numpy==1.21.0
-
+pip install numpy==1.21.0 
+pip install opencv-python 
 # Download dataset
 cd ${project_root}/reference/RoboVLMs/calvin/dataset
 # sh download_data.sh debug
